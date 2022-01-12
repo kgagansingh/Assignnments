@@ -1,0 +1,110 @@
+package com.yamaha.assignment2;
+
+class Book {
+	private String bookTitle;
+	private String author;
+	private String ISBN;
+	private int numOfCopies;
+
+	public Book() {
+	}
+
+	public Book(String bookTitle, String author, String iSBN, int numOfCopies) {
+		this.bookTitle = bookTitle;
+		this.author = author;
+		ISBN = iSBN;
+		this.numOfCopies = numOfCopies;
+	}
+
+	public String getISBN() {
+		return ISBN;
+	}
+
+	public void display() {
+		System.out.println(bookTitle + " -- " + author + " -- " + ISBN + " -- " + numOfCopies);
+	}
+
+	public String getBookTitle() {
+		return bookTitle;
+	}
+
+	public void setBookTitle(String bookTitle) {
+		this.bookTitle = bookTitle;
+	}
+
+	public int getNumOfCopies() {
+		return numOfCopies;
+	}
+
+	public void setNumOfCopies(int numOfCopies) {
+		this.numOfCopies = numOfCopies;
+	}
+
+}
+
+class BookStore {
+	private String name;
+	private final int size = 10;
+	private int i = 0;
+	private Book book[] = new Book[size];
+
+	BookStore(String name) {
+		this.name = name;
+	}
+
+	public void sell(String bookTitle, int noOfCopies) {
+		for (int i = 0; i < 10; i++) {
+			if (book[i].getBookTitle() == bookTitle) {
+				if (book[i].getNumOfCopies() >= noOfCopies) {
+					book[i].setNumOfCopies(book[i].getNumOfCopies() - noOfCopies);
+					System.out.println("Copies Sold");
+					return;
+				} else {
+					System.out.println("Book Quantity is unavailable");
+					return;
+				}
+			}
+		}
+	}
+
+	public void order(String bookTitle, String author, String isbn, int noOfCopies) {
+		for (int j = 0; j < i; j++) {
+			if (book[j].getISBN() == isbn) {
+				book[j].setNumOfCopies(book[j].getNumOfCopies() + noOfCopies);
+				System.out.println("Copies Added");
+				return;
+			}
+		}
+		if (i < size) {
+			book[i] = new Book(bookTitle, author, isbn, noOfCopies);
+			i++;
+			System.out.println("Copies Added");
+			return;
+		} else {
+			System.out.println("Book STore is Already full");
+		}
+	}
+
+	public void display() {
+		if (i == 0) {
+			System.out.println("BookStore is Empty");
+			return;
+		}
+		System.out.println("Name of the Book Store: " + name + "\n Books are: \n");
+		for (int j = 0; j < i; j++) {
+			book[j].display();
+		}
+	}
+}
+
+public class Question2 {
+	public static void main(String[] args) {
+		BookStore store = new BookStore("Walmart");
+
+		store.order("computer", "gagan", "1", 1);
+//		store.display();
+		store.sell("computer", 1);
+		store.display();
+
+	}
+}

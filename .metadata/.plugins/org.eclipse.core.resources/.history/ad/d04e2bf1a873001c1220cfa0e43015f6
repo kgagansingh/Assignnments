@@ -1,0 +1,22 @@
+package com.yamaha.assignment2;
+class Book{
+	private String bookTitle;
+	private String author;
+	private String ISBN;
+	private int numOfCopies;
+	public Book(String bookTitle, String author, String iSBN, int numOfCopies) {
+		this.bookTitle = bookTitle;
+		this.author = author;
+		ISBN = iSBN;
+		this.numOfCopies = numOfCopies;
+	}
+	public void display() {
+		System.out.println(bookTitle+" -- "+ author+" -- "+ ISBN+" -- "+numOfCopies);
+	}
+}
+public class Question2 {
+	public static void main(String[] args) {
+		Book book=new Book("maths","gagan","1234",15);
+		book.display();
+	}
+}

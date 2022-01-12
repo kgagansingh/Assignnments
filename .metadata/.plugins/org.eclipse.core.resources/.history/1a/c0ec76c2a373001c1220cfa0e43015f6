@@ -1,0 +1,5 @@
+package com.yamaha.assignment2;
+
+public class Question2 {
+
+}
