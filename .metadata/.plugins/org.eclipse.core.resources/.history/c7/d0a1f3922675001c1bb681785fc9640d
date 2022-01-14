@@ -1,0 +1,31 @@
+package com.yamaha.assignment3.Question1;
+import java.util.*;
+public class Company {
+	private String name;
+	private ArrayList<Employee> list=new ArrayList<Employee>();
+	public Company(String name, ArrayList<Employee> list) {
+		this.name = name;
+		this.list = list;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public ArrayList<Employee> getList() {
+		return list;
+	}
+	public void setList(ArrayList<Employee> list) {
+		this.list = list;
+	}
+	public void display() {
+		System.out.println("Company Name: "+ name+"\nEmployees are: ");
+		for(Employee e: list) {
+			e.display();
+		}
+		
+	}
+	
+
+}

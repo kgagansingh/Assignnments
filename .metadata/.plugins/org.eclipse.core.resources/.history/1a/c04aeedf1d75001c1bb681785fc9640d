@@ -1,0 +1,31 @@
+package com.yamaha.assignment3.Question1;
+
+public class Salaried extends Employee{
+	private int weeklySalary;
+	
+	public Salaried(String name, String id, int weeklySalary) {
+		super(name, id);
+		this.weeklySalary = weeklySalary;
+	}
+
+	public int getWeeklySalary() {
+		return weeklySalary;
+	}
+
+	public void setWeeklySalary(int weeklySalary) {
+		this.weeklySalary = weeklySalary;
+	}
+
+	public int salary() {
+		
+		return weeklySalary;
+	}
+
+	public void display() {
+		super.display(name,id);
+		System.out.print(" weeklySalary: "+weeklySalary);
+	}
+
+	
+
+}
