@@ -28,6 +28,6 @@ public class Main {
 		company.display();
 		company.changeSalary(20);
 		company.display();
-		
+
 	}
 }
